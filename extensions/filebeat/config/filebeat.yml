@@ -34,11 +34,14 @@ filebeat.config:
 processors:
   - add_cloud_metadata: ~
 
+
 filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /var/log/*.log
+    - /data/*.log
+  # 2024-03-20 06:40:09,377 DEBUG [Generator] issue event file KS_batch DONE
+  # include_lines: ['\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} .* .*']
   fields:
     log_type: test
 

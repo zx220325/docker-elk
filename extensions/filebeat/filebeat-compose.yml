@@ -18,6 +18,7 @@ services:
       - --strict.perms=false
     volumes:
       - ./extensions/filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro,Z
+      - ./data:/data:ro,Z
       # comment out the following lines as we are using podman
       # - type: bind
       #   source: /var/lib/docker/containers
