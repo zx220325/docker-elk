@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  elasticsearch-head:
+    image: harbor.jqdomain.com/personal-xin-zhu/elasticsearch-head:5
+    ports:
+      - 9100:9100
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
