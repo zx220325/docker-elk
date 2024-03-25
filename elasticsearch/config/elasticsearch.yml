@@ -14,3 +14,5 @@ http.cors.allow-headers: Authorization,Content-Type,X-Requested-with,Content-Len
 #
 xpack.license.self_generated.type: trial
 xpack.security.enabled: true
+xpack.http.proxy.host: '10.8.94.3'
+xpack.http.proxy.port: 3128
