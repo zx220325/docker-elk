@@ -15,12 +15,13 @@ filebeat.inputs:
 - type: filestream
   enabled: true
   paths:
-    - /logs/**/*.log
-  tail_file: ${TAIL_FILE}
+    - /data/**/*.csv
+  tail_file: false
   clean_removed: true
   close_removed: true
   fields:
-    hostname: ${HOSTNAME}
+    hostname: strat020
+    index: jian_csv
 
 output.logstash:
-  hosts: ["${LOG_SERVER}"]
+  hosts: ["10.9.186.14:5044"]
