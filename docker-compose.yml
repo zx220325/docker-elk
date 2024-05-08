@@ -71,6 +71,7 @@ services:
       - 5601:5601
     environment:
       KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
+      XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY: ${XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY:-}
     networks:
       - elk
     depends_on:
