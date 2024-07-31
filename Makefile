@@ -14,3 +14,13 @@ push: tag
 	@podman push harbor.jqdomain.com/personal-xin-zhu/kibana:${ELASITC_VERSION}
 	@podman push harbor.jqdomain.com/personal-xin-zhu/logstash:${ELASITC_VERSION}
 	@podman push harbor.jqdomain.com/personal-xin-zhu/filebeat:${ELASITC_VERSION}
+
+.PHONY: up
+up:
+	@echo "Starting ELK..."
+	@docker-compose -f docker-compose.yml -f extensions/elasticsearch-head/elasticsearch-head-compose.yml up -d
+
+.PHONY: down
+down:
+	@echo "Stoping ELK..."
+	@docker-compose -f docker-compose.yml -f extensions/elasticsearch-head/elasticsearch-head-compose.yml down
