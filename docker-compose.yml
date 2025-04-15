@@ -45,6 +45,10 @@ services:
         ELASTIC_VERSION: ${ELASTIC_VERSION}
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data:Z
+      - ./elasticsearch/config/saml:/usr/share/elasticsearch/config/saml
+      # - elk-config:/usr/share/elasticsearch/config:Z
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./elasticsearch/x-pack-core-${ELASTIC_VERSION}.crack.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-${ELASTIC_VERSION}.jar
     ports:
       - 9200:9200
       - 9300:9300
@@ -67,6 +71,8 @@ services:
       context: kibana/
       args:
         ELASTIC_VERSION: ${ELASTIC_VERSION}
+    volumes:
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
     ports:
       - 5601:5601
     environment:
@@ -84,3 +90,4 @@ networks:
 
 volumes:
   elasticsearch:
+  # elk-config:

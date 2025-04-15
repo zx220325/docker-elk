@@ -16,3 +16,30 @@ xpack.license.self_generated.type: basic
 xpack.security.enabled: true
 # xpack.http.proxy.host: '10.8.94.3'
 # xpack.http.proxy.port: 3128
+
+xpack.security.authc.token.enabled: true
+xpack.security.authc.realms.saml.saml1:
+  order: 2 
+  attributes.principal: "http://schemas.goauthentik.io/2021/02/saml/username"
+  attributes.groups: "http://schemas.xmlsoap.org/claims/Group" 
+  idp.metadata.path: "saml/idp-metadata.xml" 
+  idp.entity_id: "authentik" 
+  sp.entity_id: "http://10.8.105.31:5601/" 
+  sp.acs: "http://10.8.105.31:5601/api/security/saml/callback"
+  sp.logout: "http://10.8.105.31:5601/logout"
+
+
+# xpack.security.authc.realms.oidc.oidc1:
+#   order: 3
+#   rp.client_id: "Bz7cTx4IY8WqrQ2wZWoalp1Foe9EOBRsqdXPTPFt"
+#   # rp.client_secret: "9Qhj7jk1IcQnd5YdNc5V9WeUooFbUDDXgISSFdxpL6rBNY2mqhaby9JFcvi1vaLx1nG2jY4nlbt5HtAhATRqQUDuB4yrGH9CSmXFORmmz6FTgVhBnmC2W2LjB8hm8vQb"
+#   rp.response_type: code
+#   rp.redirect_uri: "http://10.8.105.31:5601/api/security/oidc/callback"
+#   op.issuer: "http://10.8.105.31:9080/application/o/elasticsearch-oidc/"
+#   op.authorization_endpoint: "http://10.8.105.31:9080/application/o/authorize/"
+#   op.token_endpoint: "http://10.8.105.31:9080/application/o/token/"
+#   op.jwkset_path: "http://10.8.105.31:9080/application/o/elasticsearch-oidc/jwks/"
+#   op.userinfo_endpoint: "http://10.8.105.31:9080/application/o/userinfo/"
+#   op.endsession_endpoint: "http://10.8.105.31:9080/application/o/elasticsearch-oidc/end-session/"
+#   rp.post_logout_redirect_uri: "http://10.8.105.31:5601/logged_out"
+#   claims.principal: preferred_username

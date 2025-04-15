@@ -18,9 +18,9 @@ push: tag
 .PHONY: up
 up:
 	@echo "Starting ELK..."
-	@docker-compose -f docker-compose.yml -f extensions/elasticsearch-head/elasticsearch-head-compose.yml up -d
+	@docker compose -f docker-compose.yml -f extensions/elasticsearch-head/elasticsearch-head-compose.yml up -d
 
 .PHONY: down
 down:
 	@echo "Stoping ELK..."
-	@docker-compose -f docker-compose.yml -f extensions/elasticsearch-head/elasticsearch-head-compose.yml down
+	@docker compose -f docker-compose.yml -f extensions/elasticsearch-head/elasticsearch-head-compose.yml down
