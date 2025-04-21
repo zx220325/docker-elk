@@ -8,6 +8,8 @@ elasticsearch.hosts: [ http://elasticsearch:9200 ]
 
 monitoring.ui.container.elasticsearch.enabled: true
 monitoring.ui.container.logstash.enabled: true
+# should be removed in production
+csp.strict: false
 
 ## X-Pack security credentials
 #
